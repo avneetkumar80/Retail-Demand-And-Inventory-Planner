@@ -47,3 +47,19 @@ def test_ml_forecaster_fit_predict(sample_series_df):
     assert len(preds) == 14
     assert np.all(preds >= 0)
     assert isinstance(importances, dict)
+
+def test_ml_forecaster_short_series():
+    dates = pd.date_range("2026-01-01", periods=10, freq="D")
+    short_df = pd.DataFrame({
+        "date": dates.strftime("%Y-%m-%d"),
+        "product_id": "PRD-SHORT",
+        "units_sold": [5, 6, 4, 7, 5, 6, 8, 4, 5, 6],
+        "is_promotion": 0,
+        "day_of_week": [d.weekday() for d in dates],
+        "is_holiday": 0
+    })
+    forecaster = MLForecaster(model_type="ridge")
+    forecaster.fit(short_df)
+    preds, importances = forecaster.predict_product_horizon(short_df, horizon_days=7)
+    assert len(preds) == 7
+    assert np.all(preds >= 0)

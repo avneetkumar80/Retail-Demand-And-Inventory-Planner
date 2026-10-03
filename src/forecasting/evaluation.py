@@ -59,9 +59,16 @@ class BacktestEvaluator:
         self.df_sales = load_sales(self.db_path)
         self.df_products = load_products(self.db_path)
 
-        # Define cutoff date for time-based split
+        # Define cutoff date with dynamic fallback for short datasets
+        min_date = self.df_sales["date"].min()
         max_date = self.df_sales["date"].max()
-        cutoff_date = max_date - pd.Timedelta(days=self.test_days)
+        total_days = (max_date - min_date).days + 1
+        
+        effective_test_days = self.test_days
+        if total_days <= self.test_days + 7:
+            effective_test_days = max(3, int(total_days * 0.25))
+
+        cutoff_date = max_date - pd.Timedelta(days=effective_test_days)
         
         df_train = self.df_sales[self.df_sales["date"] <= cutoff_date].copy()
         df_test = self.df_sales[self.df_sales["date"] > cutoff_date].copy()

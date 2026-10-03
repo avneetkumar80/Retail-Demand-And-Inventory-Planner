@@ -27,16 +27,16 @@ def create_time_features(df_sales: pd.DataFrame) -> pd.DataFrame:
     for pid, group in df.groupby("product_id"):
         group = group.copy()
         
-        # Lags
-        group["lag_7"] = group["units_sold"].shift(7)
-        group["lag_14"] = group["units_sold"].shift(14)
-        group["lag_21"] = group["units_sold"].shift(21)
+        # Lags with graceful fallback for short time series
+        group["lag_7"] = group["units_sold"].shift(7).bfill().ffill().fillna(0)
+        group["lag_14"] = group["units_sold"].shift(14).fillna(group["lag_7"]).bfill().ffill().fillna(0)
+        group["lag_21"] = group["units_sold"].shift(21).fillna(group["lag_14"]).bfill().ffill().fillna(0)
         
         # Rolling stats on shifted series to avoid leakage
         shifted = group["units_sold"].shift(1)
-        group["rolling_mean_7"] = shifted.rolling(window=7, min_periods=1).mean()
+        group["rolling_mean_7"] = shifted.rolling(window=7, min_periods=1).mean().bfill().ffill().fillna(0)
         group["rolling_std_7"] = shifted.rolling(window=7, min_periods=1).std().fillna(0)
-        group["rolling_mean_14"] = shifted.rolling(window=14, min_periods=1).mean()
+        group["rolling_mean_14"] = shifted.rolling(window=14, min_periods=1).mean().bfill().ffill().fillna(0)
         
         dfs.append(group)
         
@@ -65,8 +65,8 @@ class MLForecaster:
         Trains model on feature-engineered training subset.
         """
         df_feat = create_time_features(df_train)
-        # Drop rows with NaN in features caused by lag operations
-        df_clean = df_feat.dropna(subset=self.FEATURE_COLS).copy()
+        # Handle NaN values gracefully without dropping short time-series rows
+        df_clean = df_feat.fillna(0).copy()
         
         X = df_clean[self.FEATURE_COLS]
         y = df_clean["units_sold"]

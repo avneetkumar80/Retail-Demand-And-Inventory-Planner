@@ -1,0 +1,7 @@
+import os
+
+def pytest_configure(config):
+    """Safely configure environment variables before tests run."""
+    os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+    os.environ.setdefault("OMP_NUM_THREADS", "1")
+    os.environ.setdefault("MKL_NUM_THREADS", "1")

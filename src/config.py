@@ -1,4 +1,9 @@
 import os
+# Prevent OpenBLAS memory allocation error on Windows safely
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+
 from pathlib import Path
 
 # Base Paths
