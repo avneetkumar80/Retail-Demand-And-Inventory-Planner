@@ -1,0 +1,259 @@
+{
+    "test_period_days": 28,
+    "cutoff_date": "2026-09-04",
+    "max_date": "2026-10-02",
+    "overall_best_model": "ML_Model",
+    "global_metrics": {
+        "Naive_LastWeek": {
+            "MAE": 6.37,
+            "WAPE_percent": 21.21,
+            "RMSE": 8.32
+        },
+        "MovingAvg_7D": {
+            "MAE": 6.06,
+            "WAPE_percent": 20.18,
+            "RMSE": 8.1
+        },
+        "ExpSmoothing": {
+            "MAE": 6.26,
+            "WAPE_percent": 20.86,
+            "RMSE": 8.92
+        },
+        "Croston_Intermittent": {
+            "MAE": 5.89,
+            "WAPE_percent": 19.6,
+            "RMSE": 8.09
+        },
+        "ML_Model": {
+            "MAE": 5.31,
+            "WAPE_percent": 17.68,
+            "RMSE": 7.06
+        }
+    },
+    "product_metrics": {
+        "PRD-001": {
+            "product_name": "Espresso Coffee Beans 1kg",
+            "category": "Coffee & Tea",
+            "best_model": "ML_Model",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 6.75,
+                    "WAPE_percent": 20.43,
+                    "RMSE": 8.36
+                },
+                "MovingAvg_7D": {
+                    "MAE": 6.28,
+                    "WAPE_percent": 19.01,
+                    "RMSE": 8.0
+                },
+                "ExpSmoothing": {
+                    "MAE": 6.13,
+                    "WAPE_percent": 18.56,
+                    "RMSE": 7.92
+                },
+                "Croston_Intermittent": {
+                    "MAE": 6.15,
+                    "WAPE_percent": 18.62,
+                    "RMSE": 7.95
+                },
+                "ML_Model": {
+                    "MAE": 5.22,
+                    "WAPE_percent": 15.79,
+                    "RMSE": 6.78
+                }
+            }
+        },
+        "PRD-002": {
+            "product_name": "Oat Milk 1L (Case of 6)",
+            "category": "Dairy & Alternatives",
+            "best_model": "Croston_Intermittent",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 8.18,
+                    "WAPE_percent": 17.18,
+                    "RMSE": 9.38
+                },
+                "MovingAvg_7D": {
+                    "MAE": 4.3,
+                    "WAPE_percent": 9.03,
+                    "RMSE": 5.39
+                },
+                "ExpSmoothing": {
+                    "MAE": 4.34,
+                    "WAPE_percent": 9.11,
+                    "RMSE": 5.43
+                },
+                "Croston_Intermittent": {
+                    "MAE": 4.22,
+                    "WAPE_percent": 8.86,
+                    "RMSE": 5.25
+                },
+                "ML_Model": {
+                    "MAE": 4.91,
+                    "WAPE_percent": 10.3,
+                    "RMSE": 6.26
+                }
+            }
+        },
+        "PRD-003": {
+            "product_name": "Fresh Butter Croissants (12-pack)",
+            "category": "Bakery",
+            "best_model": "ML_Model",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 8.71,
+                    "WAPE_percent": 19.33,
+                    "RMSE": 11.39
+                },
+                "MovingAvg_7D": {
+                    "MAE": 10.95,
+                    "WAPE_percent": 24.29,
+                    "RMSE": 12.95
+                },
+                "ExpSmoothing": {
+                    "MAE": 12.27,
+                    "WAPE_percent": 27.21,
+                    "RMSE": 16.12
+                },
+                "Croston_Intermittent": {
+                    "MAE": 10.89,
+                    "WAPE_percent": 24.16,
+                    "RMSE": 13.39
+                },
+                "ML_Model": {
+                    "MAE": 8.04,
+                    "WAPE_percent": 17.83,
+                    "RMSE": 10.24
+                }
+            }
+        },
+        "PRD-004": {
+            "product_name": "Ceremonial Grade Matcha 100g",
+            "category": "Coffee & Tea",
+            "best_model": "Croston_Intermittent",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 3.5,
+                    "WAPE_percent": 153.12,
+                    "RMSE": 4.1
+                },
+                "MovingAvg_7D": {
+                    "MAE": 2.68,
+                    "WAPE_percent": 117.38,
+                    "RMSE": 3.3
+                },
+                "ExpSmoothing": {
+                    "MAE": 2.83,
+                    "WAPE_percent": 123.62,
+                    "RMSE": 3.48
+                },
+                "Croston_Intermittent": {
+                    "MAE": 2.29,
+                    "WAPE_percent": 100.0,
+                    "RMSE": 2.43
+                },
+                "ML_Model": {
+                    "MAE": 3.13,
+                    "WAPE_percent": 136.98,
+                    "RMSE": 3.8
+                }
+            }
+        },
+        "PRD-005": {
+            "product_name": "Organic Almond Butter 500g",
+            "category": "Pantry & Grab-and-Go",
+            "best_model": "Croston_Intermittent",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 3.39,
+                    "WAPE_percent": 23.23,
+                    "RMSE": 4.37
+                },
+                "MovingAvg_7D": {
+                    "MAE": 3.01,
+                    "WAPE_percent": 20.58,
+                    "RMSE": 3.94
+                },
+                "ExpSmoothing": {
+                    "MAE": 3.88,
+                    "WAPE_percent": 26.57,
+                    "RMSE": 4.79
+                },
+                "Croston_Intermittent": {
+                    "MAE": 3.0,
+                    "WAPE_percent": 20.53,
+                    "RMSE": 3.93
+                },
+                "ML_Model": {
+                    "MAE": 3.37,
+                    "WAPE_percent": 23.05,
+                    "RMSE": 4.17
+                }
+            }
+        },
+        "PRD-006": {
+            "product_name": "Gluten-Free Blueberry Muffins (6-pack)",
+            "category": "Bakery",
+            "best_model": "ML_Model",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 6.0,
+                    "WAPE_percent": 23.93,
+                    "RMSE": 7.44
+                },
+                "MovingAvg_7D": {
+                    "MAE": 6.52,
+                    "WAPE_percent": 26.01,
+                    "RMSE": 7.68
+                },
+                "ExpSmoothing": {
+                    "MAE": 6.19,
+                    "WAPE_percent": 24.71,
+                    "RMSE": 7.86
+                },
+                "Croston_Intermittent": {
+                    "MAE": 6.33,
+                    "WAPE_percent": 25.25,
+                    "RMSE": 7.71
+                },
+                "ML_Model": {
+                    "MAE": 4.92,
+                    "WAPE_percent": 19.62,
+                    "RMSE": 6.09
+                }
+            }
+        },
+        "PRD-007": {
+            "product_name": "Sparkling Cold Brew Can 330ml",
+            "category": "Beverages",
+            "best_model": "ML_Model",
+            "metrics": {
+                "Naive_LastWeek": {
+                    "MAE": 8.04,
+                    "WAPE_percent": 18.92,
+                    "RMSE": 10.29
+                },
+                "MovingAvg_7D": {
+                    "MAE": 8.68,
+                    "WAPE_percent": 20.44,
+                    "RMSE": 10.63
+                },
+                "ExpSmoothing": {
+                    "MAE": 8.2,
+                    "WAPE_percent": 19.31,
+                    "RMSE": 10.38
+                },
+                "Croston_Intermittent": {
+                    "MAE": 8.32,
+                    "WAPE_percent": 19.6,
+                    "RMSE": 10.33
+                },
+                "ML_Model": {
+                    "MAE": 7.58,
+                    "WAPE_percent": 17.85,
+                    "RMSE": 9.48
+                }
+            }
+        }
+    }
+}

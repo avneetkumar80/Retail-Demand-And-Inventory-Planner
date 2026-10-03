@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stockwise"
+version = "1.0.0"
+description = "Explainable Demand Forecasting and Inventory Planning for Small Retailers"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Portfolio Author", email = "author@example.com" }
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --import-mode=importlib"
+testpaths = [
+    "tests",
+]
+pythonpath = [
+    "."
+]
