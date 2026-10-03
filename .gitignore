@@ -1,0 +1,14 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest & logs
+.pytest_cache/
+*.log
+pytest_results.txt
+scratch/
+
+# Database files & temporary data
+data/*.db
+data/raw/*.csv
